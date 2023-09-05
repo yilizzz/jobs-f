@@ -4,7 +4,7 @@ import { useRouter } from "vue-router";
 import useUserStore from "./store/user";
 import AppProvider from "@/components/AppProvider/index.vue";
 import { NLayout, NLayoutFooter, NLayoutContent, NLayoutSider } from "naive-ui";
-import Message from "./components/message.vue";
+import MyMessage from "./components/MyMessage.vue";
 import imgSrc from "./assets/beaver.svg";
 import { Icon } from "@vicons/utils";
 import { LogInOutline } from "@vicons/ionicons5";
@@ -21,7 +21,7 @@ const onLogout = () => {
 
 <template>
   <AppProvider>
-    <Message></Message>
+    <MyMessage></MyMessage>
 
     <n-layout has-sider>
       <n-layout-sider
