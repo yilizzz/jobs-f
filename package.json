@@ -1,0 +1,36 @@
+{
+  "name": "jobs-f",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@kyvg/vue3-notification": "^2.9.1",
+    "@ricons/ionicons5": "^0.12.0",
+    "@vicons/utils": "^0.1.4",
+    "@vuelidate/core": "^2.0.3",
+    "@vuelidate/validators": "^2.0.3",
+    "axios": "^1.4.0",
+    "naive-ui": "^2.34.4",
+    "pinia": "^2.1.4",
+    "pinia-plugin-persistedstate": "^3.2.0",
+    "vue": "^3.3.4",
+    "vue-color-kit": "^1.0.6",
+    "vue-router": "^4.2.2"
+  },
+  "devDependencies": {
+    "@vicons/ionicons5": "^0.12.0",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "eslint": "^8.47.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "native-ui": "^0.0.1",
+    "sass": "^1.65.1",
+    "unplugin-auto-import": "^0.16.6",
+    "unplugin-vue-components": "^0.25.1",
+    "vfonts": "^0.0.3",
+    "vite": "^4.3.9"
+  }
+}
