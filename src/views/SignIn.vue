@@ -29,7 +29,7 @@ const rules = {
     trigger: ["blur"],
     validator: (rule, value) => {
       return new Promise((resolve, reject) => {
-        if (/^\S{4,15}$/.test(value)) {
+        if (/^\S{6,15}$/.test(value)) {
           resolve();
         } else {
           reject(Error("6-15 characters"));
@@ -74,29 +74,41 @@ const onSignIn = async (e) => {
 </script>
 
 <template>
-  <div>
-    <h3>Sign In</h3>
-
-    <n-form
-      ref="formRef"
-      :model="formModel"
-      :rules="rules"
-      label-placement="left"
-      label-width="auto"
-      require-mark-placement="right-hanging"
-      :style="{
-        maxWidth: '640px',
-      }"
-    >
-      <n-form-item path="email" label="Email">
-        <n-input v-model:value="formModel.email" type="email" />
-      </n-form-item>
-      <n-form-item path="password" label="Password">
-        <n-input v-model:value="formModel.password" type="password" />
-      </n-form-item>
-      <div style="display: flex; justify-content: flex-end">
-        <n-button round type="primary" @click="onSignIn"> Submit </n-button>
-      </div>
-    </n-form>
+  <div class="sign-container">
+    <div class="sign">
+      <h2 style="color: #142334">SIGN IN</h2>
+      <br />
+      <n-form
+        ref="formRef"
+        :model="formModel"
+        :rules="rules"
+        label-placement="left"
+        label-width="auto"
+        require-mark-placement="right-hanging"
+      >
+        <n-form-item path="email" label="Email">
+          <n-input v-model:value="formModel.email" type="email" />
+        </n-form-item>
+        <n-form-item path="password" label="Password">
+          <n-input v-model:value="formModel.password" type="password" />
+        </n-form-item>
+        <div style="display: flex; justify-content: flex-end">
+          <n-button round type="primary" @click="onSignIn"> Submit </n-button>
+        </div>
+      </n-form>
+    </div>
   </div>
 </template>
+<style scoped>
+/* #sign-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+#sign {
+  max-width: 640px;
+  min-height: 250px;
+} */
+</style>

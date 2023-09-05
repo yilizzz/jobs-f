@@ -77,28 +77,31 @@ const onSignUp = async (e) => {
 </script>
 
 <template>
-  <div>
-    <h3>Sign Up</h3>
-    <n-form
-      ref="formRef"
-      :model="formModel"
-      :rules="rules"
-      label-placement="left"
-      label-width="auto"
-      require-mark-placement="right-hanging"
-      :style="{
-        maxWidth: '640px',
-      }"
-    >
-      <n-form-item path="email" label="Email">
-        <n-input v-model:value="formModel.email" type="email" />
-      </n-form-item>
-      <n-form-item path="password" label="Password">
-        <n-input v-model:value="formModel.password" type="password" />
-      </n-form-item>
-      <div style="display: flex; justify-content: flex-end">
-        <n-button round type="primary" @click="onSignUp"> Submit </n-button>
-      </div>
-    </n-form>
+  <div class="sign-container">
+    <div class="sign">
+      <h2>SIGN UP</h2>
+      <br />
+      <n-form
+        ref="formRef"
+        :model="formModel"
+        :rules="rules"
+        label-placement="left"
+        label-width="auto"
+        require-mark-placement="right-hanging"
+        :style="{
+          maxWidth: '640px',
+        }"
+      >
+        <n-form-item path="email" label="Email">
+          <n-input v-model:value="formModel.email" type="email" />
+        </n-form-item>
+        <n-form-item path="password" label="Password">
+          <n-input v-model:value="formModel.password" type="password" />
+        </n-form-item>
+        <div style="display: flex; justify-content: flex-end">
+          <n-button round type="primary" @click="onSignUp"> Submit </n-button>
+        </div>
+      </n-form>
+    </div>
   </div>
 </template>

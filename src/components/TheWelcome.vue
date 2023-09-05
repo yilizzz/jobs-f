@@ -1,18 +1,24 @@
 <script setup>
-import imgSrc from "../assets/beaver.jpg";
+import imgSrc from "../assets/beaver.svg";
 </script>
 
 <template>
   <n-space vertical align="center">
-    <n-avatar class="flip-in-hor-bottom" round :size="72" :src="imgSrc" />
-    <img id="home" src="../assets/home.png" />
+    <n-space justify="space-between" style="width: 1000px">
+      <h2>🌈 Do it like a beaver ~.~</h2>
+      <n-avatar class="flip-in-hor-bottom" :size="72" :src="imgSrc" />
+    </n-space>
+    <img src="../assets/home.png" style="width: 1000px; height: 500px" />
   </n-space>
 </template>
 <style>
-#home {
-  width: 1000px;
-  height: 500px;
-}
+/* h2 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 36px;
+  color: #142334;
+} */
+
 .flip-in-hor-bottom {
   -webkit-animation: flip-in-hor-bottom 2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
     infinite alternate both;

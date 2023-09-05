@@ -58,7 +58,6 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
-  /* font-weight: normal; */
   font-family: "Courier New", Courier, monospace;
   font-size: 16px;
   font-weight: bold;
@@ -67,16 +66,26 @@
 
 body {
   min-height: 100vh;
-  /* color: var(--color-text); */
-
   background: var(--color-background);
   transition: color 0.5s, background-color 0.5s;
-  /* line-height: 1.6; */
-  /* font-family: BlinkMacSystemFont, Inter, -apple-system, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  font-size: 15px; */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+h2 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 28px;
+  color: #142334;
+}
+.sign-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.sign {
+  max-width: 640px;
+  min-height: 250px;
 }

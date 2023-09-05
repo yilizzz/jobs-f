@@ -8,6 +8,7 @@ import MyMessage from "./components/MyMessage.vue";
 import imgSrc from "./assets/beaver.svg";
 import { Icon } from "@vicons/utils";
 import { LogInOutline } from "@vicons/ionicons5";
+import footerSrc from "./assets/beaver.jpg";
 
 const router = useRouter();
 const userStore = useUserStore();
@@ -15,6 +16,9 @@ const userStore = useUserStore();
 const onLogout = () => {
   userStore.removeToken();
   userStore.removeUser();
+  router.push("/");
+};
+const goHome = () => {
   router.push("/");
 };
 </script>
@@ -39,7 +43,12 @@ const onLogout = () => {
         :inverted="inverted"
       >
         <div id="catchword">
-          <n-avatar :size="96" :src="imgSrc" />
+          <n-avatar
+            :size="96"
+            :src="imgSrc"
+            @click="goHome"
+            style="cursor: pointer"
+          />
           <h1>LET'S</h1>
           <h1>SNIFF</h1>
           <h1>SOME</h1>
@@ -74,8 +83,16 @@ const onLogout = () => {
         <n-layout-content style="padding: 24px">
           <RouterView />
         </n-layout-content>
-        <n-layout-footer bordered>
-          <div id="footer">SNIFF JOBS...🐢🐇...🐇🐢...</div>
+        <n-layout-footer>
+          <div id="footer">
+            <p>SNIFF...🐢🐇...🐇🐢......</p>
+            <n-avatar
+              :size="60"
+              round
+              :src="footerSrc"
+              style="border: 5px solid #b7511d; position: absolute; right: 1rem"
+            />
+          </div>
         </n-layout-footer>
       </n-layout>
     </n-layout>
@@ -90,7 +107,16 @@ const onLogout = () => {
   text-align: center;
 }
 #footer {
-  margin: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+}
+
+#footer p {
+  margin: 0; /* Remove default margin for <p> element */
 }
 .n-layout-sider {
   width: 15vw;
