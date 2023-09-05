@@ -61,13 +61,13 @@ const rules = {
     message: "Please input a post",
   },
   website: {
-    required: true,
+    required: false,
     trigger: ["blur"],
     validator: (rule, value) => {
       return new Promise((resolve, reject) => {
         const urlPattern =
           /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w- ./?%&=]*)?$/;
-        if (urlPattern.test(value)) {
+        if (value && urlPattern.test(value)) {
           resolve();
         } else {
           reject(Error("Website address is not correct."));
