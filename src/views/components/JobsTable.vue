@@ -1,14 +1,12 @@
 <script setup>
-import { reactive, ref, defineProps, toRefs, computed, inject } from "vue";
+import { reactive, ref, toRefs, computed, inject } from "vue";
 import DetailForm from "./DetailForm.vue";
 import { NButton } from "naive-ui";
 import { deleteJob, searchJobs } from "../../api/jobs";
 import useUserStore from "../../store/user";
-import { useRouter } from "vue-router";
 import { Icon } from "@vicons/utils";
 import { ArrowUpCircleSharp, ArrowDownCircleSharp } from "@vicons/ionicons5";
 
-const router = useRouter();
 const userStore = useUserStore();
 const token = userStore.token;
 const userId = userStore.userId;

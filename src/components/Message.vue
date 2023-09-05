@@ -11,7 +11,8 @@ window.$message = message;
 window.$notification = notification;
 window.$dialog = dialog;
 
-export default defineComponent({});
+// export default defineComponent({});
+export default {};
 </script>
 
 <template>
