@@ -60,11 +60,26 @@ const rules = {
     trigger: ["blur", "input"],
     message: "Please input a post",
   },
+  website: {
+    required: true,
+    trigger: ["blur"],
+    validator: (rule, value) => {
+      return new Promise((resolve, reject) => {
+        const urlPattern =
+          /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w- ./?%&=]*)?$/;
+        if (urlPattern.test(value)) {
+          resolve();
+        } else {
+          reject(Error("Website address is not correct."));
+        }
+      });
+    },
+  },
 };
 
 const onAddOrEdit = inject("onAddOrEdit");
 const onSuccess = (type) => {
-  console.log("detailForm: " + type);
+  console.log(`DetailForm Success: ${type}`);
   onAddOrEdit(type);
 };
 const saveChanges = async (e) => {
@@ -84,15 +99,13 @@ const saveChanges = async (e) => {
         }
         closeEditModal();
         if (res.acknowledged) {
-          console.log(res.modifiedCount);
+          console.log(`Modified ${res.modifiedCount} record`);
         }
-      } catch (err) {
+      } catch (error) {
         window.$message.error("Error on submit.", { duration: 3e3 });
-        console.log("Error: " + err);
       }
     } else {
       window.$message.error("Error on submit.", { duration: 3e3 });
-      console.log("Error: " + err);
     }
   });
 };

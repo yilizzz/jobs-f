@@ -176,8 +176,8 @@ const onSearch = async () => {
     const res = await searchJobs(userId, searchKeywords.value);
     searchRes.value = res;
     emit("search", searchRes);
-    console.log("res data: " + searchRes.value);
-  } catch (err) {
+    console.log(`Search res data: ${searchRes.value}`);
+  } catch (error) {
     window.$message.error("Error in Searching.");
   }
 };
@@ -190,7 +190,7 @@ const onEditJob = (row) => {
 };
 const onAddOrEdit = inject("onAddOrEdit");
 const onDelete = (type) => {
-  console.log("jobsTable: " + type);
+  console.log(`JobsTable Delete succeed: ${type}`);
   onAddOrEdit(type);
 };
 const onDelJob = async (id) => {
@@ -204,7 +204,7 @@ const onDelJob = async (id) => {
         await deleteJob(id, token);
         window.$message.success("One record deleted.", { duration: 3e3 });
         onDelete("delete");
-      } catch (err) {
+      } catch (error) {
         window.$message.error("Error in deleting.", { duration: 3e3 });
       }
     },

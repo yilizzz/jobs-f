@@ -17,12 +17,12 @@ const fetchJobs = async () => {
     const jobs = await getAllJobs(userStore.userId);
     jobsData.value = jobs;
     console.log(jobsData.value);
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
   }
 };
 const onAddOrEdit = (type) => {
-  console.log(type);
+  console.log(`MyJobs: ${type}`);
   fetchJobs();
 };
 provide("onAddOrEdit", onAddOrEdit);

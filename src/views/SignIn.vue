@@ -54,15 +54,12 @@ const onSignIn = async (e) => {
         if (error.response) {
           if (error.response.status === 401) {
             window.$message.error("Email or password is wrong.");
-            // alert("Email or password is wrong.");
             router.push({ name: "signin" });
           } else {
             window.$message.error("Server error.");
-            // alert("Server error.");
           }
         } else {
           window.$message.error("An error occurred.");
-          // alert("An error occurred.");
         }
       }
     } else {
