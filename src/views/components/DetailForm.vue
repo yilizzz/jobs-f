@@ -60,21 +60,21 @@ const rules = {
     trigger: ["blur", "input"],
     message: "Please input a post",
   },
-  website: {
-    required: false,
-    trigger: ["blur"],
-    validator: (rule, value) => {
-      return new Promise((resolve, reject) => {
-        const urlPattern =
-          /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w- ./?%&=]*)?$/;
-        if (value && urlPattern.test(value)) {
-          resolve();
-        } else {
-          reject(Error("Website address is not correct."));
-        }
-      });
-    },
-  },
+  // website: {
+  //   required: false,
+  //   trigger: ["blur"],
+  //   validator: (rule, value) => {
+  //     return new Promise((resolve, reject) => {
+  //       const urlPattern =
+  //         /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w- ./?%&=]*)?$/;
+  //       if (value && urlPattern.test(value)) {
+  //         resolve();
+  //       } else {
+  //         reject(Error("Website address is not correct."));
+  //       }
+  //     });
+  //   },
+  // },
 };
 
 const onAddOrEdit = inject("onAddOrEdit");
