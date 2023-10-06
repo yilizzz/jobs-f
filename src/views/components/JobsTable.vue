@@ -6,6 +6,7 @@ import { deleteJob, searchJobs } from "../../api/jobs";
 import useUserStore from "../../store/user";
 import { Icon } from "@vicons/utils";
 import { ArrowUpCircleSharp, ArrowDownCircleSharp } from "@vicons/ionicons5";
+import { format } from "date-fns-tz";
 
 const userStore = useUserStore();
 const token = userStore.token;
@@ -35,14 +36,16 @@ const dateColumn = {
   title: "Post Date",
   key: "post_date",
   render: (item, _) => {
-    // only when there is date data, get YYYY-MM-DD from UTC date and adjust for local time zone
+    // only when there is date data, get YYYY-MM-DD from UTC date,
+    // import and use the format function from date-fns-tz to format the date with a specific timezone
     if (item.post_date) {
       // return item.post_date.slice(0, 10);
-      const utcDate = new Date(item.post_date);
-      const localDate = new Date(
-        utcDate.getTime() + utcDate.getTimezoneOffset() * 60000
+      const formattedDate = format(
+        new Date(item.post_date),
+        "yyyy-MM-dd",
+        { timeZone: "Europe/London" } // Replace with the correct timezone
       );
-      return localDate.toISOString().slice(0, 10);
+      return formattedDate;
     }
   },
   sorter(rowA, rowB) {
