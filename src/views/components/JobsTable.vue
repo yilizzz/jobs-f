@@ -35,9 +35,14 @@ const dateColumn = {
   title: "Post Date",
   key: "post_date",
   render: (item, _) => {
-    //Get YYYY-MM-DD only when there is date data
+    // only when there is date data, get YYYY-MM-DD from UTC date and adjust for local time zone
     if (item.post_date) {
-      return item.post_date.slice(0, 10);
+      // return item.post_date.slice(0, 10);
+      const utcDate = new Date(item.post_date);
+      const localDate = new Date(
+        utcDate.getTime() + utcDate.getTimezoneOffset() * 60000
+      );
+      return localDate.toISOString().slice(0, 10);
     }
   },
   sorter(rowA, rowB) {
