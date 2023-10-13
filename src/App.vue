@@ -9,17 +9,20 @@ import imgSrc from "./assets/beaver.svg";
 import { Icon } from "@vicons/utils";
 import { LogInOutline } from "@vicons/ionicons5";
 import footerSrc from "./assets/beaver.jpg";
-
+// Import necessary dependencies
 const router = useRouter();
 const userStore = useUserStore();
-
+// Function to handle user logout
 const onLogout = () => {
+  // Remove the user's token (authentication token)
   userStore.removeToken();
+  // Remove the user's data from the store
   userStore.removeUser();
   router.push("/");
 };
+// Function to navigate to the home page
 const goHome = () => {
-  router.push("/");
+  router.push("/myjobs");
 };
 </script>
 

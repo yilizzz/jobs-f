@@ -5,11 +5,14 @@ import { signIn } from "@/api/user";
 import { ref } from "vue";
 const router = useRouter();
 const userStore = useUserStore();
+// Create a reference to the form component
 const formRef = ref();
+// Create a data model for the form
 const formModel = ref({
   email: "",
   password: "",
 });
+// Define validation rules for form fields
 const rules = {
   email: {
     required: true,
@@ -28,27 +31,36 @@ const rules = {
     required: true,
     trigger: ["blur"],
     validator: (rule, value) => {
+      // Validate password format using a regular expression
       return new Promise((resolve, reject) => {
         if (/^\S{6,15}$/.test(value)) {
+          // Resolve the promise if the password is valid
           resolve();
         } else {
+          // Reject the promise with an error message if the password is invalid
           reject(Error("6-15 characters"));
         }
       });
     },
   },
 };
+// Function to handle the sign-in process
 const onSignIn = async (e) => {
+  // Prevent the default form submission behavior
   e.preventDefault();
+  // Validate the form using the form reference
   formRef.value?.validate(async (errors) => {
     if (!errors) {
       try {
+        // Perform sign-in using the provided email and password
         const res = await signIn(
           formModel.value.email,
           formModel.value.password
         );
+        // Update user data and token in the user store
         userStore.setUser(res.user, res.userId);
         userStore.setToken(res.token);
+        // Redirect the user to the "myjobs" route with user-specific parameters
         router.push({ name: "myjobs", params: { userId: userStore.userId } });
       } catch (error) {
         if (error.response) {
@@ -63,6 +75,7 @@ const onSignIn = async (e) => {
         }
       }
     } else {
+      // Log validation errors and display an error message
       console.log(errors);
       window.$message.error("Invalid input.");
     }
@@ -96,16 +109,4 @@ const onSignIn = async (e) => {
     </div>
   </div>
 </template>
-<style scoped>
-/* #sign-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-}
-
-#sign {
-  max-width: 640px;
-  min-height: 250px;
-} */
-</style>
+<style scoped></style>

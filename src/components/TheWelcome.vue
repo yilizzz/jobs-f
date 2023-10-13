@@ -12,13 +12,6 @@ import imgSrc from "../assets/beaver.svg";
   </n-space>
 </template>
 <style>
-/* h2 {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  font-size: 36px;
-  color: #142334;
-} */
-
 .flip-in-hor-bottom {
   -webkit-animation: flip-in-hor-bottom 2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
     infinite alternate both;

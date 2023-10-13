@@ -177,6 +177,9 @@ const clearSorter = () => {
   tableRef.value.sort(null);
 };
 const searchRes = ref([]);
+// defineEmits to declare un an event that the component JobsTable can trigger
+// Then, the onSearch function triggers the "custom-event" event to notify parent component Myjobs
+// and passes the data "searchRes" as the event parameter.
 const emit = defineEmits(["search"]);
 const searchKeywords = ref("");
 const onSearch = async () => {
@@ -196,6 +199,9 @@ const clearSearch = () => {
 const onEditJob = (row) => {
   detailRef.value.open(row);
 };
+// Using "provide" and "inject" to pass a function (onAddOrEdit) from a parent component (Component MyJobs) to its child component (Component JobsTable)
+// This allows passing a "type" data from child or grandchild components back up to the parent component,
+// Here passing data(it's an entry deleted) from child component JobsTable to parent component Myjobs
 const onAddOrEdit = inject("onAddOrEdit");
 const onDelete = (type) => {
   console.log(`JobsTable Delete succeed: ${type}`);

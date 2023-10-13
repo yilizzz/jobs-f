@@ -76,7 +76,10 @@ const rules = {
   //   },
   // },
 };
-
+// Using "provide" and "inject" to pass a function (onAddOrEdit) from a parent component (Component MyJobs) to its grandchild component (Component DetailForm)
+// This allows passing a "type" data from child or grandchild components back up to the parent component,
+// Usually used to pass data across component levels without having to pass props layer by layer.
+// Here passing data(it's an entry added or edited) from grandchild component DetailForm to parent component Myjobs
 const onAddOrEdit = inject("onAddOrEdit");
 const onSuccess = (type) => {
   console.log(`DetailForm Success: ${type}`);
@@ -164,7 +167,14 @@ defineExpose({
         <n-input v-model:value="formModel.website" />
       </n-form-item>
       <n-form-item label="Contact" path="contact">
-        <n-input v-model:value="formModel.contact" />
+        <n-input
+          v-model:value="formModel.contact"
+          type="textarea"
+          :autosize="{
+            minRows: 3,
+            maxRows: 10,
+          }"
+        />
       </n-form-item>
       <n-form-item label="Post Date" path="post_date">
         <n-date-picker v-model:value="formModel.post_date" type="date" />
@@ -178,7 +188,14 @@ defineExpose({
         />
       </n-form-item>
       <n-form-item label="Remarks" path="remarks">
-        <n-input v-model:value="formModel.remarks" />
+        <n-input
+          v-model:value="formModel.remarks"
+          type="textarea"
+          :autosize="{
+            minRows: 3,
+            maxRows: 10,
+          }"
+        />
       </n-form-item>
       <n-form-item label="Color this offer" path="color">
         <n-radio-group v-model:value="formModel.color" name="radiogroup1">

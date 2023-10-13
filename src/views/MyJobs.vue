@@ -9,6 +9,9 @@ import { Icon } from "@vicons/utils";
 import { AddCircleOutline } from "@vicons/ionicons5";
 const userStore = useUserStore();
 
+// Pass value from parent Myjobs to child JobsTable:
+// props can be used to pass value,
+// and toRefs can be used to receive it in the child component.
 const jobsData = ref([]);
 const detailRef = ref();
 
@@ -25,13 +28,21 @@ const onAddOrEdit = (type) => {
   console.log(`MyJobs: ${type}`);
   fetchJobs();
 };
+// Using provide and inject,
+// you can provide data in the parent component and then inject (get) this data in the child component.
+// Usually used to pass data across component levels without having to pass props layer by layer.
+// Here passing data(it's an entry added or edited) from child component DetailForm to parent component Myjobs
 provide("onAddOrEdit", onAddOrEdit);
 
 onMounted(() => fetchJobs());
 
 const onAddJob = () => {
+  // This open methods is defined in child component DetailForm
+  // It is passed to parent component using defineExpose
   detailRef.value.open({});
 };
+// The onSearch method receives the parameter(result of a search) from the child component JobsTable
+// and stores it in the parent component's jobsData property for display again in the child component JobsTable.
 const onSearch = (val) => {
   if (val === "clear") {
     fetchJobs();
@@ -54,6 +65,7 @@ const onSearch = (val) => {
     </n-button>
   </div>
   <DetailForm ref="detailRef"></DetailForm>
+  <!-- ParentComponent listens to the custom-event: onSearch -->
   <JobsTable :data="jobsData" @search="onSearch"></JobsTable>
 </template>
 <style>
