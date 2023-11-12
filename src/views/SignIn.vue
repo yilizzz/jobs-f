@@ -97,10 +97,14 @@ const onSignIn = async (e) => {
         require-mark-placement="right-hanging"
       >
         <n-form-item path="email" label="Email">
-          <n-input v-model:value="formModel.email" type="email" />
+          <n-input
+            v-model:value="formModel.email"
+            type="email"
+            placeholder="beaver@river.com"
+          />
         </n-form-item>
         <n-form-item path="password" label="Password">
-          <n-input v-model:value="formModel.password" type="password" />
+          <n-input v-model:value="formModel.password" placeholder="123456" />
         </n-form-item>
         <div style="display: flex; justify-content: flex-end">
           <n-button round type="primary" @click="onSignIn"> Submit </n-button>
