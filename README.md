@@ -4,6 +4,7 @@
 
 This application is designed for tracking job applications, providing CRUD functionality for positions applied records.
 Additionally, it includes features to distinguish records in various states.
+[demo](https://jobs-f.vercel.app/)
 
 ## Features
 
