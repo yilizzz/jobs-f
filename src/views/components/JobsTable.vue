@@ -52,22 +52,22 @@ const dateColumn = {
     return Date.parse(rowA.post_date) - Date.parse(rowB.post_date);
   },
 };
-const websiteColumn = {
-  title: "Website",
-  key: "website",
+const remarksColumn = {
+  title: "Remarks",
+  key: "remarks",
   width: 250,
   render(rowData) {
     return h(
       "a",
       {
-        href: rowData.website,
+        href: rowData.remarks,
         target: "_blank",
         style: {
           color: "rgba(91, 91, 98, 0.75)",
           textDecoration: "none",
         },
       },
-      rowData.website
+      rowData.remarks
     );
   },
 };
@@ -125,7 +125,7 @@ const columns = [
     },
   },
   dateColumn,
-  websiteColumn,
+  remarksColumn,
   {
     title: "Action",
     key: "actions",
