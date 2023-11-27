@@ -8,7 +8,7 @@ import imgSrc from "../assets/beaver.svg";
       <h2>🌈 Do it like a beaver ~.~</h2>
       <n-avatar class="flip-in-hor-bottom" :size="72" :src="imgSrc" />
     </n-space>
-    <img src="../assets/home.png" style="width: 1000px; height: 500px" />
+    <img src="../assets/home.png" />
   </n-space>
 </template>
 <style>

@@ -35,6 +35,7 @@ const detailRef = ref();
 const dateColumn = {
   title: "Post Date",
   key: "post_date",
+  width: 200,
   render: (item, _) => {
     // only when there is date data, get YYYY-MM-DD from UTC date,
     // import and use the format function from date-fns-tz to format the date with a specific timezone
@@ -55,7 +56,7 @@ const dateColumn = {
 const remarksColumn = {
   title: "Remarks",
   key: "remarks",
-  width: 250,
+  width: 500,
   render(rowData) {
     return h(
       "a",
@@ -76,14 +77,17 @@ const columns = [
   {
     title: "Title",
     key: "title",
+    width: 600,
   },
   {
     title: "Company",
     key: "company",
+    width: 600,
   },
   {
     title: "State 👀",
     key: "state",
+    width: 200,
     defaultFilter: [
       "Suitable",
       "Applied",
@@ -303,14 +307,20 @@ const rowClassName = (row) => {
   margin: 1rem;
 }
 
-@media (max-width: 821px) {
+@media (max-width: 1200px) {
   .tableResponsive td:nth-child(4),
   .tableResponsive th:nth-child(4),
   .tableResponsive td:nth-child(5),
   .tableResponsive th:nth-child(5),
   .tableResponsive td:nth-child(6),
   .tableResponsive th:nth-child(6) {
-    display: none;
+    visibility: collapse !important;
+  }
+  .tableResponsive td:nth-child(1),
+  .tableResponsive th:nth-child(1),
+  .tableResponsive td:nth-child(2),
+  .tableResponsive th:nth-child(2) {
+    width: 150px;
   }
 }
 :deep(.red td) {
