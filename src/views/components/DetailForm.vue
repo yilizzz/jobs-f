@@ -44,8 +44,8 @@ const open = (row) => {
   }
 };
 const generalOptions = [
-  "Suitable",
   "Applied",
+  "Confirm receipt of resume",
   "Interviewing",
   "Waiting for reply",
   "Rejected",
@@ -60,21 +60,6 @@ const rules = {
     trigger: ["blur", "input"],
     message: "Please input a post",
   },
-  // website: {
-  //   required: false,
-  //   trigger: ["blur"],
-  //   validator: (rule, value) => {
-  //     return new Promise((resolve, reject) => {
-  //       const urlPattern =
-  //         /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w- ./?%&=]*)?$/;
-  //       if (value && urlPattern.test(value)) {
-  //         resolve();
-  //       } else {
-  //         reject(Error("Website address is not correct."));
-  //       }
-  //     });
-  //   },
-  // },
 };
 // Using "provide" and "inject" to pass a function (onAddOrEdit) from a parent component (Component MyJobs) to its grandchild component (Component DetailForm)
 // This allows passing a "type" data from child or grandchild components back up to the parent component,
@@ -221,8 +206,6 @@ defineExpose({
         <n-button round type="primary" @click="saveChanges"> Submit </n-button>
       </div>
     </n-form>
-
-    <!-- <pre>{{ JSON.stringify(formModel, null, 2) }}</pre> -->
     <template #footer>Sniff! </template>
   </n-modal>
 </template>
