@@ -77,12 +77,12 @@ const columns = [
   {
     title: "Title",
     key: "title",
-    width: 600,
+    minWidth: 300,
   },
   {
     title: "Company",
     key: "company",
-    width: 600,
+    width: 300,
   },
   {
     title: "State 👀",
@@ -320,7 +320,7 @@ const rowClassName = (row) => {
   .tableResponsive th:nth-child(1),
   .tableResponsive td:nth-child(2),
   .tableResponsive th:nth-child(2) {
-    width: 150px;
+    width: 150px !important;
   }
 }
 :deep(.red td) {
