@@ -89,7 +89,7 @@ const columns = [
     key: "state",
     width: 200,
     defaultFilter: [
-      "Suitable",
+      "Confirm receipt of resume",
       "Applied",
       "Interviewing",
       "Waiting for reply",
