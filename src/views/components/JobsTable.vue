@@ -98,8 +98,8 @@ const columns = [
     ],
     filterOptions: [
       {
-        label: "Suitable",
-        value: "Suitable",
+        label: "Confirm receipt of resume",
+        value: "Confirm receipt of resume",
       },
       {
         label: "Applied",
